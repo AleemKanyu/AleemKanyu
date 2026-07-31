@@ -8,68 +8,86 @@
       .cmd { fill: #e6edf3; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 15px; }
       .out { fill: #7ee787; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 15px; }
       .accent { fill: #7c8cff; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 15px; font-weight: bold; }
-      .line { opacity: 0; }
-      .phoneBody { fill: none; stroke: #7c8cff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 760; stroke-dashoffset: 760; }
-      .screenGlow { fill: #7c8cff; opacity: 0; }
-      .icon { fill: #05060a; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 18px; font-weight: bold; opacity: 0; }
+      .phoneBody { fill: none; stroke: #7c8cff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 760; }
+      .icon { fill: #05060a; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 18px; font-weight: bold; }
     </style>
+
+    <clipPath id="clip1"><rect id="r1" x="0" y="0" width="0" height="20"/></clipPath>
+    <clipPath id="clip2"><rect id="r2" x="0" y="0" width="0" height="20"/></clipPath>
+    <clipPath id="clip3"><rect id="r3" x="0" y="0" width="0" height="20"/></clipPath>
+    <clipPath id="clip4"><rect id="r4" x="0" y="0" width="0" height="20"/></clipPath>
+    <clipPath id="clip5"><rect id="r5" x="0" y="0" width="0" height="20"/></clipPath>
   </defs>
 
-  <!-- terminal panel -->
-  <rect x="1" y="1" width="480" height="258" rx="10" class="win"/>
-  <rect x="1" y="1" width="480" height="30" rx="10" class="bar"/>
-  <rect x="1" y="16" width="480" height="15" class="bar"/>
-  <circle cx="20" cy="16" class="dot" fill="#ff5f57"/>
-  <circle cx="38" cy="16" class="dot" fill="#febc2e"/>
-  <circle cx="56" cy="16" class="dot" fill="#28c840"/>
+  <!-- master loop fade, wraps everything so the reset is invisible -->
+  <g>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.88;0.93;0.97;1" dur="6s" repeatCount="indefinite"/>
 
-  <g class="prompt">
-    <text x="20" y="66" class="line">~ $ <tspan class="cmd">whoami</tspan>
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.2s" fill="freeze"/>
-    </text>
-    <text x="20" y="92" class="line out">aleem · dev · builds mobile
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.9s" fill="freeze"/>
-    </text>
+    <!-- terminal panel -->
+    <rect x="1" y="1" width="480" height="258" rx="10" class="win"/>
+    <rect x="1" y="1" width="480" height="30" rx="10" class="bar"/>
+    <rect x="1" y="16" width="480" height="15" class="bar"/>
+    <circle cx="20" cy="16" class="dot" fill="#ff5f57"/>
+    <circle cx="38" cy="16" class="dot" fill="#febc2e"/>
+    <circle cx="56" cy="16" class="dot" fill="#28c840"/>
 
-    <text x="20" y="132" class="line">~ $ <tspan class="cmd">./gradlew build</tspan>
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="1.6s" fill="freeze"/>
-    </text>
-    <text x="20" y="158" class="line out">&gt; compiling PocketCraft...
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2.3s" fill="freeze"/>
-    </text>
-    <text x="20" y="184" class="line accent">&gt; BUILD SUCCESSFUL
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="3s" fill="freeze"/>
-    </text>
+    <g class="prompt">
+      <g clip-path="url(#clip1)">
+        <text x="20" y="66">~ $ <tspan class="cmd">whoami</tspan></text>
+      </g>
+      <rect x="0" y="50" width="0" height="24" fill="none">
+        <animate href="#r1" attributeName="width" values="0;190;190;190" keyTimes="0;0.06;0.9;1" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r1" attributeName="x" values="0;0" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r1" attributeName="y" values="50;50" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r1" attributeName="height" values="24;24" dur="6s" repeatCount="indefinite"/>
+      </rect>
 
-    <text x="20" y="224" class="line">~ $ <tspan fill="#e6edf3">_</tspan>
-      <animate attributeName="opacity" values="0;1;0;1" dur="1.2s" begin="3.4s" repeatCount="indefinite"/>
-    </text>
-  </g>
+      <g clip-path="url(#clip2)">
+        <text x="20" y="92" class="out">aleem · dev · builds mobile</text>
+      </g>
+      <rect id="r2host" fill="none">
+        <animate href="#r2" attributeName="x" values="0;0" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r2" attributeName="y" values="76;76" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r2" attributeName="height" values="24;24" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r2" attributeName="width" values="0;280;280;280" keyTimes="0;0.15;0.9;1" dur="6s" begin="0.05s" repeatCount="indefinite"/>
+      </rect>
 
-  <!-- phone panel -->
-  <g transform="translate(560, 20)">
-    <path class="phoneBody" d="M 30 0
-      H 190
-      A 30 30 0 0 1 220 30
-      V 190
-      A 30 30 0 0 1 190 220
-      H 30
-      A 30 30 0 0 1 0 190
-      V 30
-      A 30 30 0 0 1 30 0 Z">
-      <animate attributeName="stroke-dashoffset" values="760;0" dur="1.4s" begin="0.1s" fill="freeze"/>
-    </path>
+      <g clip-path="url(#clip3)">
+        <text x="20" y="132">~ $ <tspan class="cmd">./gradlew build</tspan></text>
+      </g>
+      <rect fill="none">
+        <animate href="#r3" attributeName="x" values="0;0" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r3" attributeName="y" values="116;116" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r3" attributeName="height" values="24;24" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r3" attributeName="width" values="0;220;220;220" keyTimes="0;0.3;0.9;1" dur="6s" begin="0.4s" repeatCount="indefinite"/>
+      </rect>
 
-    <rect x="14" y="14" width="192" height="192" rx="16" class="screenGlow">
-      <animate attributeName="opacity" values="0;0.12" dur="0.6s" begin="1.6s" fill="freeze"/>
-    </rect>
+      <g clip-path="url(#clip4)">
+        <text x="20" y="158" class="out">&gt; compiling PocketCraft...</text>
+      </g>
+      <rect fill="none">
+        <animate href="#r4" attributeName="x" values="0;0" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r4" attributeName="y" values="142;142" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r4" attributeName="height" values="24;24" dur="6s" repeatCount="indefinite"/>
+        <animate href="#r4" attributeName="width" values="0;250;250;250" keyTimes="0;0.42;0.9;1" dur="6s" begin="0.9s" repeatCount="indefinite"/>
+      </rect>
 
-    <rect x="80" y="90" width="60" height="60" rx="14" fill="#7c8cff" opacity="0">
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2s" fill="freeze"/>
-      <animate attributeName="y" values="100;90" dur="0.4s" begin="2s" fill="freeze"/>
-    </rect>
-    <text x="110" y="126" text-anchor="middle" class="icon">PC
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2.3s" fill="freeze"/>
-    </text>
+      <text x="20" y="184" class="accent" opacity="0">
+        &gt; BUILD SUCCESSFUL
+        <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.5;0.55;1" dur="6s" repeatCount="indefinite"/>
+      </text>
+
+      <text x="20" y="224">~ $ <tspan fill="#e6edf3">_</tspan>
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+      </text>
+    </g>
+
+    <!-- traveling pulse from terminal to phone -->
+    <circle r="5" fill="#7c8cff" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.53;0.63;0.65" dur="6s" repeatCount="indefinite"/>
+      <animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0;0;1;1" keyTimes="0;0.5;0.53;0.65;1" calcMode="linear" path="M 470 175 L 700 130"/>
+    </circle>
+
+
   </g>
 </svg>
