@@ -18,6 +18,8 @@ platform  Android
 mode      heads down
 ```
 
+<img src="./pulse.svg" alt="status" width="320" />
+
 <br>
 
 ## principles
