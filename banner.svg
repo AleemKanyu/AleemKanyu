@@ -1,13 +1,13 @@
 <svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .win { fill: #0d1117; stroke: #262c36; stroke-width: 1; }
-      .bar { fill: #161b22; }
+      .win { fill: #0a0c10; stroke: #262c36; stroke-width: 1; }
+      .bar { fill: #14171d; }
       .dot { r: 6; }
-      .prompt { fill: #6b7280; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 16px; }
+      .prompt { fill: #565f6b; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 16px; }
       .cmd { fill: #e6edf3; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 16px; }
       .out { fill: #7ee787; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 16px; }
-      .comment { fill: #6b7280; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 15px; font-style: italic; }
+      .accent { fill: #7c8cff; font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace; font-size: 16px; font-weight: bold; }
       .cursor { fill: #e6edf3; }
     </style>
   </defs>
@@ -18,13 +18,13 @@
   <circle cx="24" cy="18" class="dot" fill="#ff5f57"/>
   <circle cx="46" cy="18" class="dot" fill="#febc2e"/>
   <circle cx="68" cy="18" class="dot" fill="#28c840"/>
-  <text x="450" y="23" text-anchor="middle" class="prompt">aleem@build-log — zsh</text>
+  <text x="450" y="23" text-anchor="middle" class="prompt">aleem — zsh</text>
 
-  <text x="24" y="70" class="prompt">~ $ <tspan class="cmd">whoami</tspan></text>
-  <text x="24" y="96" class="out">aleem — computer science engineering student</text>
+  <text x="24" y="72" class="prompt">~ $ <tspan class="cmd">whoami</tspan></text>
+  <text x="24" y="98" class="out">aleem · dev · builds mobile</text>
 
-  <text x="24" y="130" class="prompt">~ $ <tspan class="cmd">cat current_focus.txt</tspan></text>
-  <text x="24" y="156" class="out">software + mobile app development, learned by shipping, not just reading</text>
+  <text x="24" y="140" class="prompt">~ $ <tspan class="cmd">git branch --show-current</tspan></text>
+  <text x="24" y="166" class="accent">pocketcraft</text>
 
-  <text x="24" y="190" class="prompt">~ $ <tspan class="cursor">_</tspan></text>
+  <text x="24" y="200" class="prompt">~ $ <tspan class="cursor">_</tspan></text>
 </svg>
